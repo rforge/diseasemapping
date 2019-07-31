@@ -165,7 +165,12 @@ getTilesMerc = function(
         Dpath = paste(path,zoom,'/',Dy-1,'/',sep='')
         Dtile = paste(Dx-1, suffix, sep='')
         Durl = paste(Dpath, Dtile, sep='')
-      } else {
+      } else if (tileNames == 'z/x/y') {
+        Dcache = file.path(cacheDir, zoom, Dx - 1)
+        Dpath = paste(path, zoom, '/', Dx - 1, '/', sep = '')
+        Dtile = paste(Dy - 1, suffix, sep = '/')
+        Durl = paste(Dpath, Dtile, sep = '')
+      }  else {
         warning('tileNames must be zxy or zyx or xyz=')
       }
       
